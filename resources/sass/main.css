@@ -1,0 +1,70 @@
+.wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.navigation {
+	position: relative;
+	width: 100%;
+	height: 55px;
+	z-index: 888;
+}
+
+.nav-item {
+	background-color: #f4cccc !important;
+	font-weight: bold;
+}
+
+.contents {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 55px);
+	overflow-y: auto;
+	/*
+	min-height: calc(100% - 55px); 
+	*/
+}
+
+.bg-aliceblue {
+	background-color: #f0f8ff !important;
+}
+
+.sign_layer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	align-items: stretch;
+    flex-direction: row-reverse;
+}
+
+.sign_addon {
+	width: calc(100% - 480px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+
+.sign_form {
+	width: 480px;
+	height: 100%;
+	background-color: white;
+	padding: 5% 5% 5% 5%;
+}
+
+.sign_title {
+	width: 100%;
+	font-size: 1.6em;
+	text-align: center;
+	display: block;
+}
+
+.sign_btn {
+	width: 100%;
+	text-align: right;
+	display: block;
+}

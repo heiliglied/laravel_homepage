@@ -1,0 +1,41 @@
+//reset.css
+@import url("reset.css");
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// toastr
+//@import "~toastr/toastr";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//font-path
+$fa-font-path: "../webfonts";
+
+// Font-Awesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.custom-file-input ~ .custom-file-label::after {
+    content: "파일 선택";
+}
+
+.custom-file-label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.note-toolbar {
+	background-color: lightcyan;
+}
+
+.note-editing-area {
+	background-color: white;
+}
