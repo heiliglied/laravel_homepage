@@ -120,6 +120,7 @@ class IdeaBoardService
 				->orWhere('admin.name', 'like', '%' . $parameters['search']['value'] . '%');
 		});
 		
+		$result = $result->groupBy('idea_board.id');
 		$result = $result->skip($parameters['skip'])->take($parameters['take'])->orderBy($parameters['order']['column'], $parameters['order']['sort'])->get();
 		return $result;
 	}
