@@ -101,12 +101,12 @@ Idea Factory
 								@endif
 							</div>
 							@if(Auth::user()->id == $ideaBoard->user_id && $ideaBoard->writer == 'user')
-							<button type="button" class="btn btn-success" onclick="location.href='/ideaBoard/modify/' + {{ $ideaBoard->id }}">수정</button>
+							<button type="button" class="btn btn-success dis_check" onclick="location.href='/ideaBoard/modify/' + {{ $ideaBoard->id }}">수정</button>
 							&nbsp;
-							<button type="button" onclick="showDeleteModal({{ $ideaBoard->id }})" class="btn btn-danger">삭제</button>
+							<button type="button" onclick="showDeleteModal({{ $ideaBoard->id }})" class="btn btn-danger dis_check">삭제</button>
 							&nbsp;
 							@endif
-							<button type="button" onclick="location.href='/ideaBoard/list'" class="btn btn-primary">목록</button>
+							<button type="button" onclick="location.href='/ideaBoard/list'" class="btn btn-primary dis_check">목록</button>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@ Idea Factory
 					</div>
 					
 					<div class="form-group text-right" style="border-bottom: solid 1px red;">
-						<button type="button" onclick="write_reply();" class="btn btn-primary">작성</button>
+						<button type="button" onclick="showReplyModal();" class="btn btn-primary dis_check">작성</button>
 					</div>
 				</div>
 				@endif
@@ -134,7 +134,7 @@ Idea Factory
 									</div>
 									<div class="reply_text" v-html="list.reply"></div>
 									<div class="reply_option text-right" v-if="list.writer_id == authId && list.writer == 'user'">
-										<button type="button" class="btn btn-sm btn-danger" @click="showReplyDelete(list.id)">삭제</button>
+										<button type="button" class="btn btn-sm btn-danger dis_check" @click="showReplyDelete(list.id)">삭제</button>
 									</div>
 								</div>
 							</li>
@@ -250,6 +250,7 @@ function file_get(id) {
 }
 
 function showDeleteModal(id) {
+	setButtonDisable();
 	$("#confirm_modal").attr('data-id', id);
 	$("#confirm_modal").attr('data-param', 'board');
 	$("#confirm_modal").find('h5').html('게시글 삭제');
@@ -258,12 +259,27 @@ function showDeleteModal(id) {
 	return false;
 }
 
-function showReplyModal()
-{
+function showReplyModal() {
+	setButtonDisable();
 	$("#confirm_modal").attr('data-param', 'reply_write');
 	$("#confirm_modal").find('h5').html('덧글');
 	$("#confirm_modal").find('p').html('덧글을 작성하시겠습니까?');
 	$("#confirm_modal").modal('show');
+	return false;
+}
+
+function setButtonDisable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.setAttribute('disabled', 'disabled');
+	});
+}
+
+function setButtonEnable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.removeAttribute('disabled');
+	});
 }
 
 function confirmed() {
@@ -279,7 +295,9 @@ function confirmed() {
 	$("#confirm_modal").modal('hide');
 }
 
-function canceled() {}
+function canceled() {
+	setButtonEnable();
+}
 
 function onBoardDelete() {
 	var f = document.idea_form;
@@ -300,16 +318,19 @@ function write_reply() {
 			$('#summernote').summernote('reset');
 			toastr.info('덧글 작성에 성공하였습니다.');
 			app.getBoard(1);
-			
+			setButtonEnable();
 		} else if(response.data == 'id_null') {
 			toastr.warning('해당 게시글이 존재하지 않습니다.');
+			setButtonEnable();
 			return false;
 		} else if(response.data == 'content_null') {
 			toastr.warning('덧글을 작성해 주세요.');
+			setButtonEnable();
 			document.getElementsByName('contents')[0].focus();
 			return false;
 		} else {
 			toastr.error('에러가 발생하였습니다.');
+			setButtonEnable();
 			document.getElementsByName('contents')[0].focus();
 			return false;
 		}
@@ -322,9 +343,11 @@ function deleteReply() {
 	axios.delete('/ideaBoard/reply/delete/' + id).then(response =>{
 		if(response.data == 'success') {
 			toastr.info('덧글 삭제에 성공하였습니다.');
+			setButtonEnable();
 			app.getBoard(1);
 		} else {
 			toastr.error('에러가 발생하였습니다.');
+			setButtonEnable()
 			return false;
 		}
 	});

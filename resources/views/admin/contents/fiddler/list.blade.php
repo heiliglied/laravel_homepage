@@ -127,12 +127,27 @@ let table = $("#fiddler_list").DataTable(
 	}
 );
 
+function setButtonDisable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.setAttribute('disabled', 'disabled');
+	});
+}
+
+function setButtonEnable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.removeAttribute('disabled');
+	});
+}
+
 function show(key) {
 	var link = window.open('/zzapfiddler/' + key, '_blank');
 	link.focus();
 }
 
 function show_delete(key) {
+	setButtonDisable();
 	$("#confirm_modal").attr('data-id', key);
 	$("#confirm_modal").modal('show');
 }
@@ -152,6 +167,7 @@ function fiddlerDelete() {
 	axios.delete('/admin/ajax/fiddlerDelete/' + key).then((response) => {
 		if(response.data != 'success') {
 			toastr.error('오류가 발생하였습니다.');
+			setButtonEnable();
 			return false;
 		} else {
 			table.draw();

@@ -74,7 +74,7 @@ class="hold-transition sidebar-mini layout-fixed"
 </div>
 @include('layouts.admin.footer')
 @include('layouts.admin.righttoggle')
-@include('templates.confirm', ['confirm_title' => '피들러 설정', 'confirm_body' => '해당 스크립트를 삭제하시겠습니까?'])
+@include('templates.confirm', ['confirm_title' => '', 'confirm_body' => ''])
 @endsection
 
 @section('scripts')
@@ -129,8 +129,8 @@ let table = $("#idea_list").DataTable(
 			{
 				'data': null,
 				'render': function(data, type, row, meta) {
-					return '<button type="button" class="btn btn-sm btn-primary" onclick="show_censorship(\'' + data.id + '\', \'' + data.censorship + '\')">검열</button>&nbsp'
-							+ '<button type="button" class="btn btn-sm btn-danger" onclick="show_delete(\'' + data.id + '\')">삭제</button>';
+					return '<button type="button" class="btn btn-sm btn-primary dis_check" onclick="show_censorship(\'' + data.id + '\', \'' + data.censorship + '\')">검열</button>&nbsp'
+							+ '<button type="button" class="btn btn-sm btn-danger dis_check" onclick="show_delete(\'' + data.id + '\')">삭제</button>';
 				}
 			}
 		],
@@ -155,6 +155,7 @@ function goView(id) {
 }
 
 function show_censorship(key, status) {
+	setButtonDisable();
 	$("#confirm_modal").attr('data-id', key);
 	$("#confirm_modal").attr('data-param', 'censored');
 	$("#confirm_modal").find('h5').html('아이디어보드');
@@ -168,11 +169,26 @@ function show_censorship(key, status) {
 }
 
 function show_delete(key) {
+	setButtonDisable();
 	$("#confirm_modal").attr('data-id', key);
 	$("#confirm_modal").attr('data-param', 'delete');
 	$("#confirm_modal").find('h5').html('아이디어보드');
 	$("#confirm_modal").find('p').html('게시글을 삭제하시겠습니까?<br/>덧글, 파일을 포함한 내용이 전부 삭제됩니다.');
 	$("#confirm_modal").modal('show');
+}
+
+function setButtonDisable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.setAttribute('disabled', 'disabled');
+	});
+}
+
+function setButtonEnable() {
+	var btns = document.getElementsByClassName("dis_check");
+	Array.prototype.forEach.call(btns, function(e){
+		e.removeAttribute('disabled');
+	});
 }
 
 function confirmed() {
@@ -195,8 +211,10 @@ function boardDelete() {
 	axios.delete('/admin/ajax/ideaList/delete/' + key).then(result => {
 		if(result.data == 'success') {
 			table.draw();
+			setButtonEnable();
 		} else {
 			toastr.error('오류가 발생하였습니다.');
+			setButtonEnable();
 			return false;
 		}
 	});
@@ -207,8 +225,10 @@ function boardCensored() {
 	axios.patch('/admin/ajax/ideaList/censor/' + key).then(result => {
 		if(result.data == 'success') {
 			table.draw();
+			setButtonEnable();
 		} else {
 			toastr.error('오류가 발생하였습니다.');
+			setButtonEnable();
 			return false;
 		}
 	});
