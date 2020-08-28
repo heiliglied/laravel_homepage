@@ -109,6 +109,9 @@ Route::group(['prefix' => 'admin'], function(){
 			Route::get('/ideaBoard/view/{id}', 'Admin\Contents\IdeaBoardController@view');
 			Route::get('/ideaBoard/modify/{id}', 'Admin\Contents\IdeaBoardController@modify');
 			Route::post('/ideaBoard/download', 'Admin\Contents\IdeaBoardController@download');
+			Route::patch('/ideaBoard/update', 'Admin\Contents\IdeaBoardController@update');
+			Route::patch('/ideaBoard/censor', 'Admin\Contents\IdeaBoardController@censor');
+			Route::delete('/ideaBoard/delete', 'Admin\Contents\IdeaBoardController@delete');
 		});
 		
 		Route::group(['prefix' => 'ajax'], function(){
@@ -140,6 +143,8 @@ Route::group(['prefix' => 'admin'], function(){
 			Route::post('/userIdCheck', 'Ajax\UserMemberController@idCheck');
 			Route::get('/userList', 'Ajax\UserMemberController@userList');
 			Route::patch('/userExcept/{id}', 'Ajax\UserMemberController@userExcept');
+			
+			Route::delete('/ideaBoard/deleteFile/{id}', 'Ajax\IdeaBoardController@deleteFile');
 		});
 	});
 });

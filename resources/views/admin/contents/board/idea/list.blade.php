@@ -141,6 +141,11 @@ let table = $("#idea_list").DataTable(
 				'searchable': false,
 				'className': 'text-center',
 			}
+		],
+		'order': [
+			[
+				0, "desc"
+			]
 		]
 	}
 );

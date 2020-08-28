@@ -45,6 +45,10 @@ class="hold-transition sidebar-mini layout-fixed"
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
+						<form name="idea_form" method="post" encType="multipart/form-data">
+						{{ csrf_field() }}
+						<input type="hidden" name="_method" value="">
+						<input type="hidden" name="id" value="{{ $ideaBoard->id }}">
 						<div class="card">
 							<div class="card-header">
 								{{ $ideaBoard->subject }}
@@ -164,7 +168,7 @@ function file_get(id) {
 
 function showDeleteModal(id) {
 	$("#confirm_modal").attr('data-id', id);
-	$("#confirm_modal").attr('data-param', 'board');
+	$("#confirm_modal").attr('data-param', 'delete');
 	$("#confirm_modal").find('h5').html('게시글 삭제');
 	$("#confirm_modal").find('p').html('게시글을 삭제 하시겠습니까?');
 	$("#confirm_modal").modal('show');
@@ -208,27 +212,17 @@ function canceled() {
 }
 
 function boardDelete() {
-	var key = $("#confirm_modal").attr('data-id');
-	axios.delete('/admin/ajax/ideaList/delete/' + key).then(result => {
-		if(result.data == 'success') {
-			table.draw();
-		} else {
-			toastr.error('오류가 발생하였습니다.');
-			return false;
-		}
-	});
+	var f = document.idea_form;
+	f.action = '/admin/contents/ideaBoard/delete';
+	f._method.value = 'DELETE';
+	f.submit();
 }
 
 function boardCensored() {
-	var key = $("#confirm_modal").attr('data-id');
-	axios.patch('/admin/ajax/ideaList/censor/' + key).then(result => {
-		if(result.data == 'success') {
-			table.draw();
-		} else {
-			toastr.error('오류가 발생하였습니다.');
-			return false;
-		}
-	});
+	var f = document.idea_form;
+	f.action = '/admin/contents/ideaBoard/censor';
+	f._method.value = 'PATCH';
+	f.submit();
 }
 </script>
 @endsection
