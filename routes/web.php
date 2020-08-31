@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth']], function(){
 		Route::post('download', 'Board\IdeaBoardController@download');
 		Route::delete('deleteFile/{id}', 'Ajax\IdeaBoardController@deleteFile');
 		Route::patch('update', 'Board\IdeaBoardController@update');
-		Route::get('view/{id}', 'Board\IdeaBoardController@view');
+		Route::get('view/{id}', 'Board\IdeaBoardController@view')->middleware('view_increse:idea_board');
 		Route::delete('delete/{id?}', 'Board\IdeaBoardController@delete');
 		Route::post('reply/write', 'Ajax\IdeaReplyController@create');
 		Route::get('reply/getList', 'Ajax\IdeaReplyController@getList');
