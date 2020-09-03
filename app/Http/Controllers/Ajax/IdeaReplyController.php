@@ -18,6 +18,14 @@ class IdeaReplyController extends Controller
 	
 	protected function create(Request $request)
 	{
+		$writer = "";
+		
+		if(Auth::getDefaultDriver() == 'web') {
+			$writer = 'user';
+		} else {
+			$writer = Auth::getDefaultDriver();
+		}
+		
 		if($request->id == '') {
 			return 'id_null';
 		}
@@ -27,7 +35,7 @@ class IdeaReplyController extends Controller
 		}
 		
 		$datas = [
-			'writer' => 'user',
+			'writer' => $writer,
 			'user_id' => Auth::user()->id,
 			'table_name' => 'idea_board',
 			'board_id' => $request->id,
@@ -88,7 +96,16 @@ class IdeaReplyController extends Controller
 		} catch(\Exception $e) {
 			return 'error';
 		}
-		
-		
+	}
+	
+	protected function censor(Request $request)
+	{
+		try {
+			$ideaReplyService = IdeaReplyService::getInstance();
+			$ideaReplyService->censor('id', $request->id);
+			return 'success';
+		} catch(\Exception $e) {
+			return 'error';
+		}
 	}
 }

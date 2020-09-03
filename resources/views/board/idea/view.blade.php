@@ -132,7 +132,8 @@ Idea Factory
 										<div class="replyer">[[ list.writer_name ]]</div>
 										<div class="reply_date">[[ list.updated_at ]]</div>
 									</div>
-									<div class="reply_text" v-html="list.reply"></div>
+									<div class="reply_text" v-if="list.censorship == 'Y'">검열된 덧글입니다.</div>
+									<div class="reply_text" v-else v-html="list.reply"></div>
 									<div class="reply_option text-right" v-if="list.writer_id == authId && list.writer == 'user'">
 										<button type="button" class="btn btn-sm btn-danger dis_check" @click="showReplyDelete(list.id)">삭제</button>
 									</div>

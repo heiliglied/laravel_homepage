@@ -145,6 +145,10 @@ Route::group(['prefix' => 'admin'], function(){
 			Route::patch('/userExcept/{id}', 'Ajax\UserMemberController@userExcept');
 			
 			Route::delete('/ideaBoard/deleteFile/{id}', 'Ajax\IdeaBoardController@deleteFile');
+			Route::post('/ideaBoard/reply/write', 'Ajax\IdeaReplyController@create');
+			Route::get('/ideaBoard/reply/getList', 'Ajax\IdeaReplyController@getList');
+			Route::patch('/ideaBoard/reply/censor/{id}', 'Ajax\IdeaReplyController@censor');
+			Route::delete('/ideaBoard/reply/delete/{id}', 'Ajax\IdeaReplyController@deleteReply');
 		});
 	});
 });

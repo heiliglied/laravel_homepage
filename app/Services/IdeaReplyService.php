@@ -64,4 +64,14 @@ class IdeaReplyService
 			}
 		})->delete();
 	}
+	
+	public function censor(String $column, $value)
+	{
+		return IdeaReply::where($column, $value)
+						->update(
+							[
+								'censorship' => DB::raw('if(censorship="Y", "N", "Y")'),
+							]
+						);
+	}
 }
