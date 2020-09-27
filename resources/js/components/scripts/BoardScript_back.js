@@ -26,19 +26,11 @@ const funcs = {
 				search: searchValue,
 			}
 		}).then((response) => {
-			this.page = pageNum;
-			this.totalPage = response.data.pagination.totalPage;
-			this.lists = response.data.lists;
-			this.pagination = response.data.pagination;
-			/*
-			this.lists.filter(response.data.lists => {
-				return response.data.lists;
-			});
+			app.page = pageNum;
+			app.lists = response.data.lists;
+			app.totalPage = response.data.pagination.totalPage;
+			app.pagination = response.data.pagination.pages;
 			
-			this.pagination.filter(response.data.pagination => {
-				return response.data.pagination;
-			});
-			*/
 			if(initail != 'initial') {
 				var url = '//' + location.host + location.pathname + '?page=' + pageNum + '&search=' + searchValue;
 				history.pushState('', '', url);
@@ -47,6 +39,18 @@ const funcs = {
 	},
 	onSubmit() {
 		this.goSearch(1, this.search);
+	},
+	getParam(name) {
+		var params = location.search.substr(location.search.indexOf("?") + 1);
+		var sval = "";
+		params = params.split("&");
+		for (var i = 0; i < params.length; i++) {
+			temp = params[i].split("=");
+			if ([temp[0]] == name) { 
+				sval = temp[1]; 
+			}
+		}
+		return sval;
 	}
 }
 

@@ -16,11 +16,11 @@
 	</colgroup>
 	<thead>
 		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>조회수</th>
-			<th>작성자</th>
-			<th>작성일</th>
+			<th align="center">번호</th>
+			<th align="center">제목</th>
+			<th align="center">조회수</th>
+			<th align="center">작성자</th>
+			<th align="center">작성일</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -72,30 +72,7 @@
 </nav>
 </form>
 </template>
-
 <script>
-import BoardJs from './scripts/BoardScript.js'
-
-export default {
-	//delimiters: ['{{', '}}'],
-	data: function() {
-		return {
-			page: 1,
-			lists: ['temp'],
-			search: '',
-			pagination: [],
-			totalPage: 1,
-		}
-	},
-	mounted() {
-		this.getBoard(this.page, this.search);
-	},
-	methods: {
-		getBoard: BoardJs.getBoard,
-		goPage: BoardJs.goPage,
-		goSearch: BoardJs.goSearch,
-		onSubmit: BoardJs.onSubmit,
-		getParam: BoardJs.getParam
-	}
-}
+import BoardScript from './scripts/BoardScript.js'
+export default BoardScript;
 </script>

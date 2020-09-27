@@ -3,11 +3,11 @@
     "/mix/css/app.css": "/mix/css/app.css",
     "/mix/js/bootstrap.bundle.min.js": "/mix/js/bootstrap.bundle.min.js",
     "/mix/js/dataTables.bootstrap4.min.js": "/mix/js/dataTables.bootstrap4.min.js",
-    "/mix/js/ideaBoard.js": "/mix/js/ideaBoard.js",
     "/mix/js/manifest.js": "/mix/js/manifest.js",
     "/mix/js/summernote.min.js": "/mix/js/summernote.min.js",
     "/mix/js/vendor.js": "/mix/js/vendor.js",
     "/mix/css/toastr.css": "/mix/css/toastr.css",
+    "/mix/js/vueBoard.js": "/mix/js/vueBoard.js",
     "/mix/css/summernote.min.css": "/mix/css/summernote.min.css",
     "/mix/css/main.css": "/mix/css/main.css",
     "/mix/css/dataTables.bootstrap4.min.css": "/mix/css/dataTables.bootstrap4.min.css"
