@@ -25,7 +25,7 @@
 	</thead>
 	<tbody>
 		<template v-if="lists.length > 0">
-		<tr v-for="(list, index) in lists" :key="index">
+		<tr v-for="(list, index) in lists" :key="index" v-on:click="goView(list.id)">
 			<td align="center">{{ list.id }}</td>
 			<td style="cursor: pointer;">{{ list.subject }}</td>
 			<td align="center">{{ list.view }}</td>

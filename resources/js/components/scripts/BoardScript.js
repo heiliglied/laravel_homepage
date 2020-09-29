@@ -50,6 +50,9 @@ const funcs = {
 				}
 			});
 		},
+		goView(id) {
+			location.href='/ideaBoard/view/' + id;
+		},
 		onSubmit() {
 			this.goSearch(1, this.search);
 		},
