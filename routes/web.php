@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //로그인 로그아웃
-Route::get('/login', 'Auth\LoginController@loginForm');
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'loginForm']);
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::post('/signIn', 'Auth\LoginController@signIn');
 
