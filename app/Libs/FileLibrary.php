@@ -84,6 +84,40 @@ class FileLibrary
 			return false;
 		}
 	}
+	
+	public function moveFromTemporaryToNew(String $temp, String $real)
+	{
+		$year = date("Y");
+		$month = date("m");
+		
+		$this->makeDirectory($year);
+		$this->makeDirectory($year . "/" . $month);
+		
+		try {
+			Storage::disk($this->uploadStore)->move($temp, $year . "/" . $month . "/" . $real);
+			return $year . "/" . $month . "/" . $real;
+		} catch(\Exception $e) {
+			return $e->getMessage();
+			return false;
+		}
+	}
+	
+	public function copyFromTemporaryToNew(String $temp, String $real)
+	{
+		$year = date("Y");
+		$month = date("m");
+		
+		$this->makeDirectory($year);
+		$this->makeDirectory($year . "/" . $month);
+		
+		try {
+			Storage::disk($this->uploadStore)->copy($temp, $year . "/" . $month . "/" . $real);
+			return $year . "/" . $month . "/" . $real;
+		} catch(\Exception $e) {
+			return $e->getMessage();
+			return false;
+		}
+	}
 		
 	protected function makeDirectory(String $path)
 	{
