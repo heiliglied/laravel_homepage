@@ -14,6 +14,8 @@ use DB;
 use Storage;
 use App\Libs\FileLibrary;
 
+use App\Events\BoardNewEvents;
+
 class IdeaBoardController extends Controller
 {
 	private $disk = 'local';
@@ -94,6 +96,11 @@ class IdeaBoardController extends Controller
 			}
 			
 			DB::commit();
+			
+			//이벤트 호출.
+			event(new BoardNewEvents(['type' => 'board', 'num' => $last_id->id]));
+			//자신을 제외하고 이벤트 발생.
+			//broadcast(new BoardNewEvents(['type' => 'board', 'num' => $last_id->id]))->toOthers();
 			
 			return redirect('/ideaBoard/list');
 			

@@ -9,6 +9,7 @@ use App\Services\IdeaReplyService;
 use App\Traits\Pagination;
 
 use Auth;
+use App\Events\BoardNewEvents;
 
 class IdeaReplyController extends Controller
 {
@@ -47,8 +48,14 @@ class IdeaReplyController extends Controller
 		try {
 			$ideaReplyService = IdeaReplyService::getInstance();
 			$ideaReplyService->create($datas);
+			
+			//이벤트 호출.
+			event(new BoardNewEvents(['type' => 'reply', 'num' => $request->id]));
+			//자신을 제외하고 이벤트 발생.
+			//broadcast(new BoardNewEvents(['type' => 'board', 'num' => $request->id]))->toOthers();
+			
 			return 'success';
-		} catch(\Exception $e) {
+		} catch(\Exception $e) {			
 			return 'error';
 		}
 	}

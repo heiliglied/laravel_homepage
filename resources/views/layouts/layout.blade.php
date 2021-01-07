@@ -12,6 +12,7 @@
 <body @yield('body_class')>
 @yield('contents')
 
+<!--<script src="//factory.hungrysorrow.com:6001/socket.io/socket.io.js"></script>-->
 @yield('scripts')
 </body>
 

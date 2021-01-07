@@ -33,8 +33,6 @@ window.toastr = require('toastr');
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
-
 // window.Pusher = require('pusher-js');
 
 // window.Echo = new Echo({
@@ -43,3 +41,10 @@ window.toastr = require('toastr');
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+import Echo from "laravel-echo"
+window.io = require('socket.io-client');
+window.Echo = new Echo({
+	broadcaster: 'socket.io',
+	host: window.location.hostname + ':6001'
+});

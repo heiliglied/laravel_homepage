@@ -413,5 +413,6 @@ app = new Vue({
 		},
 	}
 });
+
 </script>
 @endsection

@@ -23,3 +23,8 @@ toastr.options.closeMethod = 'fadeOut';
 toastr.options.closeDuration = 300;
 toastr.options.closeEasing = 'swing';
 toastr.options.positionClass = 'toast-bottom-right';
+
+Echo.channel('hungrysorrow_database_board').listen('BoardNewEvents', (e) => {
+	console.log(e);
+	console.log('a');
+});

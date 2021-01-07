@@ -18,6 +18,8 @@ let scripts = [
 	'popper.js',
 	'vue',
 	'toastr',
+	'socket.io-client',
+	'laravel-echo'
 ];
 
 let autoload = [
