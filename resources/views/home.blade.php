@@ -6,6 +6,7 @@ Idea Factory
 
 @section('heads')
 <link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
+<link rel="stylesheet" type="text/css" href="/mix/css/toastr.css" />
 <link rel="stylesheet" type="text/css" href="/mix/css/main.css" />
 <style>
 .titlebox {

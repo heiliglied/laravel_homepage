@@ -98,9 +98,9 @@ class IdeaBoardController extends Controller
 			DB::commit();
 			
 			//이벤트 호출.
-			event(new BoardNewEvents(['type' => 'board', 'num' => $last_id->id]));
+			//event(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']));
 			//자신을 제외하고 이벤트 발생.
-			//broadcast(new BoardNewEvents(['type' => 'board', 'num' => $last_id->id]))->toOthers();
+			broadcast(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']))->toOthers();
 			
 			return redirect('/ideaBoard/list');
 			

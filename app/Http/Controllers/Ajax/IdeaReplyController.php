@@ -50,9 +50,9 @@ class IdeaReplyController extends Controller
 			$ideaReplyService->create($datas);
 			
 			//이벤트 호출.
-			event(new BoardNewEvents(['type' => 'reply', 'num' => $request->id]));
+			//event(new BoardNewEvents(['type' => 'reply', 'num' => $request->id]));
 			//자신을 제외하고 이벤트 발생.
-			//broadcast(new BoardNewEvents(['type' => 'board', 'num' => $request->id]))->toOthers();
+			broadcast(new BoardNewEvents(['type' => 'reply', 'writer' => Auth::user()->name, 'subject' => '']))->toOthers();
 			
 			return 'success';
 		} catch(\Exception $e) {			
