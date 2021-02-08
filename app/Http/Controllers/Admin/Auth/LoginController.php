@@ -57,10 +57,11 @@ class LoginController extends Controller
 	
 	protected function logout(Request $request)
 	{
+		//$sessionKey = $this->guard()->getName();
 		$this->guard()->logout();
+		//$request->session()->forget($sessionKey);
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         if ($response = $this->loggedOut($request)) {
