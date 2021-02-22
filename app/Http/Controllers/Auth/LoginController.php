@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 
+//use App\Models\User;
+
 class LoginController extends Controller
 {
     /*
@@ -57,6 +59,8 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
+			//$user = User::where('user_id', $request->user_id)->first();
+			//$user->createToken('userToken')->plainTextToken;
             return $this->sendLoginResponse($request);
         }
 

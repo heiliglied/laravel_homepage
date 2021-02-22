@@ -90,7 +90,10 @@ class LoginController extends Controller
         if ($response = $this->authenticated($request, $this->guard()->user())) {
             return $response;
         }
-
+		
+		//$admin = Admin::where('user_id', $request->user_id)->first();
+		//$plainTextToken = $admin->createToken('adminToken')->plainTextToken;
+		
         return $request->wantsJson()
                     ? new Response('', 204)
                     : redirect()->intended('/admin');
