@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\IdeaBoard;
+use App\Models\App\IdeaBoard;
 use DB;
 
 class IdeaBoardService

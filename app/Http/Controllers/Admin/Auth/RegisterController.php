@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Services\AdminService;
-use App\Models\AdminRank;
+use App\Models\Admin\AdminRank;
 
 class RegisterController extends Controller
 {

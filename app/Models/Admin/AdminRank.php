@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRank extends Model
+class AdminRank extends Model
 {
-    protected $table = 'user_rank';
+    protected $table = 'admin_rank';
 	public $timestamps = false;
 	
 	protected $fillable = [

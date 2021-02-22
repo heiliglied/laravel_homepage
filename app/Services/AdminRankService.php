@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\AdminRank;
+use App\Models\Admin\AdminRank;
 
 class AdminRankService
 {

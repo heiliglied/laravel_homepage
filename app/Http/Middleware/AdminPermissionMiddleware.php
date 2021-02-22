@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
-use App\Models\AdminPermission;
+use App\Models\Admin\AdminPermission;
 
 use App\Traits\Settings;
 

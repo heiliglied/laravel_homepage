@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Admin;
+use App\Models\Admin;
 
 class AdminService
 {

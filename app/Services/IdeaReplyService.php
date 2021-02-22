@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\IdeaReply;
+use App\Models\App\IdeaReply;
 use DB;
 
 class IdeaReplyService

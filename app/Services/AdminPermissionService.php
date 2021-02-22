@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 
-use App\Models\AdminPermission;
+use App\Models\Admin\AdminPermission;
 
 class AdminPermissionService
 {

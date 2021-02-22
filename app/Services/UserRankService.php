@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\UserRank;
+use App\Models\User\UserRank;
 
 class UserRankService
 {

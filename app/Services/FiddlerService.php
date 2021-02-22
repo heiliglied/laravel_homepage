@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Fiddler;
+use App\Models\App\Fiddler;
 use DB;
 
 class FiddlerService

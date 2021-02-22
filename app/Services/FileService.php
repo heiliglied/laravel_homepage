@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Files;
+use App\Models\App\Files;
 
 class FileService
 {

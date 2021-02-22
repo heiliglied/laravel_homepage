@@ -11,7 +11,7 @@ use Illuminate\Validation\ValidationException;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use App\Admin;
+use App\Models\Admin;
 
 class LoginController extends Controller
 {
