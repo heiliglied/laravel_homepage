@@ -1,9 +1,9 @@
 const funcs = {
 	data: function() {
 		return {
-			page: 1,
+			page: getParam('page') ? getParam('page') : 1,
 			lists: ['temp'],
-			search: '',
+			search: getParam('search') ? getParam('search') : '',
 			pagination: [],
 			totalPage: 1,
 		}
