@@ -5,8 +5,6 @@ Idea Factory
 @endsection
 
 @section('heads')
-<link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
-<link rel="stylesheet" type="text/css" href="/mix/css/main.css" />
 <style>
 
 </style>
@@ -69,10 +67,6 @@ Idea Factory
 @endsection
 
 @section('scripts')
-<script src="/mix/js/manifest.js"></script>
-<script src="/mix/js/vendor.js"></script>
-<script src="/mix/js/app.js"></script>
-<script src="/mix/js/bootstrap.bundle.min.js"></script>
 <script>
 function check_id() {
 	axios.post('/ajax/userIdCheck', {

@@ -9,7 +9,6 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
 	<link rel="stylesheet" type="text/css" href="/mix/css/toastr.css" />
-	<link rel="stylesheet" type="text/css" href="/mix/css/main.css" />
 	@yield('heads')
 </head>
 <body @yield('body_class')>

@@ -1,11 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.adminLayout')
 
 @section('title')
 Admin
 @endsection
 
 @section('heads')
-<link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
 <link rel="stylesheet" type="text/css" href="/plugin/adminlte/dist/css/adminlte.min.css" />
 <style>
 [v-cloak] {
@@ -139,10 +138,6 @@ class="hold-transition sidebar-mini layout-fixed"
 @endsection
 
 @section('scripts')
-<script src="/mix/js/manifest.js"></script>
-<script src="/mix/js/vendor.js"></script>
-<script src="/mix/js/app.js"></script>
-<script src="/mix/js/bootstrap.bundle.min.js"></script>
 <script src="/plugin/adminlte/dist/js/adminlte.min.js"></script>
 <script>
 @include('errors.permission')

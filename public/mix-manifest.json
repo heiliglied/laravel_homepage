@@ -1,6 +1,7 @@
 {
     "/mix/js/app.js": "/mix/js/app.js",
     "/mix/css/app.css": "/mix/css/app.css",
+    "/mix/js/axiosOption.js": "/mix/js/axiosOption.js",
     "/mix/js/bootstrap.bundle.min.js": "/mix/js/bootstrap.bundle.min.js",
     "/mix/js/dataTables.bootstrap4.min.js": "/mix/js/dataTables.bootstrap4.min.js",
     "/mix/js/manifest.js": "/mix/js/manifest.js",

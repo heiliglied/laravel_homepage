@@ -31,6 +31,7 @@ mix.js(['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], 'public/mix/j
 mix.js(['node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js'], 'public/mix/js/dataTables.bootstrap4.min.js');
 mix.js(['node_modules/summernote/dist/summernote.min.js'], 'public/mix/js/summernote.min.js');
 mix.js(['resources/js/vueBoard.js'], 'public/mix/js/vueBoard.js');
+mix.js(['resources/js/axiosOption.js'], 'public/mix/js/axiosOption.js');
 mix.sass('resources/sass/app.scss', 'public/mix/css/app.css');
 mix.sass('node_modules/toastr/toastr.scss', 'public/mix/css/toastr.css');
 mix.copy('node_modules/summernote/dist/summernote.min.css', 'public/mix/css/summernote.min.css');

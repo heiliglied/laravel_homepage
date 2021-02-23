@@ -1,11 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.adminLayout')
 
 @section('title')
 Admin
 @endsection
 
 @section('heads')
-<link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
 <link rel="stylesheet" type="text/css" href="/plugin/adminlte/dist/css/adminlte.min.css" />
 
 @endsection
@@ -134,7 +133,7 @@ class="hold-transition sidebar-mini layout-fixed"
 							</div>
 							<div class="card-footer text-right">
 								* 은 필수 입력사항입니다. 
-								<button type="button" onclick="location.href='/admin/settings/member'" class="btn btn-info">목록</button>
+								<button type="button" onclick="location.href='/admin/users/users'" class="btn btn-info">목록</button>
 								&nbsp;
 								<button type="submit" class="btn btn-primary">수정</button>
 								&nbsp;
@@ -156,10 +155,6 @@ class="hold-transition sidebar-mini layout-fixed"
 @endsection
 
 @section('scripts')
-<script src="/mix/js/manifest.js"></script>
-<script src="/mix/js/vendor.js"></script>
-<script src="/mix/js/app.js"></script>
-<script src="/mix/js/bootstrap.bundle.min.js"></script>
 <script src="/plugin/adminlte/dist/js/adminlte.min.js"></script>
 <script>
 @include('errors.permission')

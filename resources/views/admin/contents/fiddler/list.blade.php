@@ -1,11 +1,10 @@
-@extends('layouts.layout')
+@extends('layouts.adminLayout')
 
 @section('title')
 Admin
 @endsection
 
 @section('heads')
-<link rel="stylesheet" type="text/css" href="/mix/css/app.css" />
 <link rel="stylesheet" type="text/css" href="/plugin/adminlte/dist/css/adminlte.min.css" />
 <link rel="stylesheet" type="text/css" href="/mix/css/dataTables.bootstrap4.min.css" />
 <style>
@@ -76,10 +75,6 @@ class="hold-transition sidebar-mini layout-fixed"
 @endsection
 
 @section('scripts')
-<script src="/mix/js/manifest.js"></script>
-<script src="/mix/js/vendor.js"></script>
-<script src="/mix/js/app.js"></script>
-<script src="/mix/js/bootstrap.bundle.min.js"></script>
 <script src="/plugin/adminlte/dist/js/adminlte.min.js"></script>
 <script src="/mix/js/dataTables.bootstrap4.min.js"></script>
 <script>
@@ -93,7 +88,6 @@ let table = $("#fiddler_list").DataTable(
 			'url': '/admin/ajax/FiddlerList',
 			'type': 'GET',
 			'dataSrc': function(response) {
-				console.log(response.data);
 				let data = response.data;
 				return data;
 			}

@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
 			
 			DB::select($query);
 			
-			$replace_data = ['link' => env('APP_URL') . '/' . $email . '/' . $token, 'time' => '1시간'];
+			$replace_data = ['link' => env('APP_URL') . '/password_resets/' . $email . '/' . $token, 'time' => '1시간'];
 			
 			Mail::send('mail.password_reset', $replace_data, function($message) use($email){
 				$message->from('heiliglied@gmail.com');
