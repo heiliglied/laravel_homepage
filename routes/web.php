@@ -153,4 +153,8 @@ Route::group(['prefix' => 'admin'], function(){
 	});
 });
 
+Route::group(['prefix' => 'apis'], function(){
+	Route::get('/login', 'API\APIController@login');
+});
+
 //Auth::routes();
