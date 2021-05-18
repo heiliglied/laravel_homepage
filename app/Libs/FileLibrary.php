@@ -32,15 +32,13 @@ class FileLibrary
 			'data' => [],
 		];
 		
-		foreach($files as $key => $values) {
-			foreach($values as $value) {
-				try {
-					$realname = Storage::disk($this->uploadStore)->put($path, $value);				
-					array_push($result['data'], ['original_name' => $value->getClientOriginalName(), 'renamed_name' => $realname]);
-				} catch(\Exception $e) {
-					array_push($result, ['success' => false]);
-					return $result;
-				}
+		foreach($files as $key => $value) {
+			try {
+				$realname = Storage::disk($this->uploadStore)->put($path, $value);				
+				array_push($result['data'], ['original_name' => $value->getClientOriginalName(), 'renamed_name' => $realname, 'key_name' => $key]);
+			} catch(\Exception $e) {
+				array_push($result, ['success' => false]);
+				return $result;
 			}
 		}
 		return $result;
