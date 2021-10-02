@@ -114,6 +114,13 @@ Route::group(['prefix' => 'admin'], function(){
 			Route::delete('/ideaBoard/delete', 'Admin\Contents\IdeaBoardController@delete');
 		});
 		
+		Route::group(['prefix' => 'test'], function(){
+			Route::get('/cast', 'Admin\Testing\TestController@cast');
+			Route::get('/castList', 'Admin\Testing\TestController@castList');
+			Route::get('/castWrite', 'Admin\Testing\TestController@castWrite');
+			Route::post('/castCreate', 'Admin\Testing\TestController@castCreate');
+		});
+		
 		Route::group(['prefix' => 'ajax'], function(){
 			Route::get('/adminRankList', 'Ajax\AdminRankController@getList');
 			Route::post('/adminRankInsert', 'Ajax\AdminRankController@insert');

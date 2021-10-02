@@ -51,6 +51,23 @@
 							</li>
 						</ul>
 					</li>
+					<li class="nav-item has-treeview @if($menu['open'] == 'test') menu-open @endif">
+						<a href="#" class="nav-link">
+							<i class="nav-icon fas fa-users"></i>
+							<p>
+								테스트
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="/admin/test/cast" class="nav-link @if($menu['active'] == 'cast') active @endif">
+									<i class="fas fa-layer-group nav-icon"></i>
+									<p>Model Cast 테스트</p>
+								</a>
+							</li>
+						</ul>
+					</li>
 					<li class="nav-item has-treeview @if($menu['open'] == 'users') menu-open @endif">
 						<a href="#" class="nav-link">
 							<i class="nav-icon fas fa-users"></i>
