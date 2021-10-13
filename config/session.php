@@ -197,6 +197,6 @@ return [
     */
 
 	'same_site' => 'lax',
-    #'same_site' => 'none', #none 사용시 크롬 80부터 SSL 반드시 적용 필요함.
+    #'same_site' => 'none', #none 사용시 크롬 80부터 SSL 반드시 적용 필요함. secure 설정은 반드시 true로 들어가야함.
 
 ];
