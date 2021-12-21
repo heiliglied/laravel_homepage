@@ -26,7 +26,7 @@ window.axios.defaults.headers.common = {
 
 axios.defaults.withCredentials = true;
 
-window.Vue = require('vue');
+window.Vue = require('vue').default;
 window.toastr = require('toastr');
 
 /**
@@ -44,7 +44,7 @@ window.toastr = require('toastr');
 //     forceTLS: true
 // });
 
-import Echo from "laravel-echo"
+import Echo from "laravel-echo";
 window.io = require('socket.io-client');
 window.Echo = new Echo({
 	broadcaster: 'socket.io',

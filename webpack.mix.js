@@ -23,13 +23,13 @@ let scripts = [
 ];
 
 let autoload = [
-	{'jquery': ['$', 'jQuery', 'window.$', 'window.jQuery', 'jquery']},
+	{'jquery': ['$', 'window.jQuery',"jQuery","window.$","jquery","window.jquery"], 'jQuery': 'jquery'},
 ];
 
-mix.js('resources/js/app.js', 'public/mix/js/app.js');
+mix.js('resources/js/app.js', 'public/mix/js/app.js').vue({version:2});
 mix.js(['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], 'public/mix/js/bootstrap.bundle.min.js').sourceMaps();
 mix.js(['node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js'], 'public/mix/js/dataTables.bootstrap4.min.js');
-mix.js(['node_modules/summernote/dist/summernote.min.js'], 'public/mix/js/summernote.min.js');
+mix.copy(['node_modules/summernote/dist/summernote.min.js'], 'public/mix/js/summernote.min.js');
 mix.js(['resources/js/vueBoard.js'], 'public/mix/js/vueBoard.js');
 mix.js(['resources/js/axiosOption.js'], 'public/mix/js/axiosOption.js');
 mix.sass('resources/sass/app.scss', 'public/mix/css/app.css');
