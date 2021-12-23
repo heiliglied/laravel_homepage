@@ -96,18 +96,18 @@ class IdeaBoardController extends Controller
 			}
 			
 			DB::commit();
-			
-			//이벤트 호출.
-			//event(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']));
-			//자신을 제외하고 이벤트 발생.
-			broadcast(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']))->toOthers();
-			
-			return redirect('/ideaBoard/list');
-			
 		} catch(\Exception $e) {
 			DB::rollback();
 			abort(500);
 		}
+		
+		//이벤트 호출.
+		//event(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']));
+		//자신을 제외하고 이벤트 발생.
+		broadcast(new BoardNewEvents(['type' => 'board', 'writer' => Auth::user()->name, 'subject' => '']))->toOthers();
+		
+		return redirect('/ideaBoard/list');
+		
 	}
 	
 	protected function modify(Request $request)

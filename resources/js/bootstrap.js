@@ -44,9 +44,27 @@ window.toastr = require('toastr');
 //     forceTLS: true
 // });
 
+//only socket.io-client 2.3.x version.
 import Echo from "laravel-echo";
 window.io = require('socket.io-client');
 window.Echo = new Echo({
 	broadcaster: 'socket.io',
 	host: window.location.hostname + ':6001'
 });
+
+/*
+//SSL 사용시 현재 문제있음.....
+import Echo from "laravel-echo";
+window.Pusher = require('pusher-js');
+window.Echo = new Echo({
+	broadcaster: 'pusher',
+	key: 'hungrysorrow',
+	wsHost: window.location.hostname,
+	wsPort: 6001,
+	wssPort: 6001,
+	disableStats: true, //통계정보 저장여부
+	encrypted: location.protocol === 'https',
+	enabledTransports: location.protocol === 'https'? ['ws','wss'] : ['ws'],
+	forceTLS : location.protocol === 'https',
+});
+*/

@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/ttt', function(){
+	broadcast(new \App\Events\BoardNewEvents(['type' => 'reply', 'writer' => 'ababab', 'subject' => '']))->toOthers();
+});
 Route::get('/', function () {
     return view('home');
 });

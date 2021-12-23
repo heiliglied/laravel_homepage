@@ -322,6 +322,10 @@ function write_reply() {
 			setButtonEnable();
 			document.getElementsByName('contents')[0].focus();
 			return false;
+		} else if(response.data == 'broadcast_error') {
+			toastr.info('덧글 작성에 성공하였습니다.');
+			app.getBoard(1);
+			setButtonEnable();
 		} else {
 			toastr.error('에러가 발생하였습니다.');
 			setButtonEnable();
