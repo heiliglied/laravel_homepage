@@ -25,6 +25,7 @@ toastr.options.closeEasing = 'swing';
 toastr.options.positionClass = 'toast-bottom-right';
 
 //Echo.channel('board').listen('BoardNewEvents', (e) => {
+/*
 window.Echo.channel('hungrysorrow_database_board').listen('BoardNewEvents', (e) => {
 	if(e.bType.type == 'board') {
 		toastr.info(e.bType.writer + '님이\n새 글을 작성하였습니다.');
@@ -32,3 +33,4 @@ window.Echo.channel('hungrysorrow_database_board').listen('BoardNewEvents', (e) 
 		toastr.info(e.bType.writer + '님이\n게시글 덧글을 남기셨습니다.');
 	}
 });
+*/
