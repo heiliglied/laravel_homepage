@@ -8,6 +8,6 @@ class TestController extends Controller
 {
     protected function test(Request $request)
 	{
-		
+		return view('test');
 	}
 }
