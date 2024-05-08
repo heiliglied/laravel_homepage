@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 //테스트 코드
 Route::get('/test', [App\Http\Controllers\TestController::class, 'test']);
+Route::get('/getBuffer', [App\Http\Controllers\TestController::class, 'getBuffer']);
 
 Route::get('/', function () {
     return view('home');
